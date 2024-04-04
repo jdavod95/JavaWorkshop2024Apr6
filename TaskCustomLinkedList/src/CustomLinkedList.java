@@ -16,7 +16,7 @@ public class CustomLinkedList <T extends Number>{
 			counter++;
 			currentLink = currentLink.getNextLink();
 			
-			if(Objects.isNull(currentLink) && counter > index) {
+			if(Objects.isNull(currentLink) && counter >= index) {
 				throw new IndexOutOfBoundsException();
 			}
 		}
@@ -51,9 +51,28 @@ public class CustomLinkedList <T extends Number>{
 	
 	public Number get(int index) {
 		if(Objects.isNull(firstLink)) {
-			throw new ArrayIndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException();
 		}
 		return seekIndex(index).getValue();
+	}
+	
+	public Number remove(int index) {
+		if(Objects.isNull(firstLink)) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		CustomLink currentLink = firstLink;
+		
+		if(index == 0) {
+			firstLink = firstLink.getNextLink();
+		} else {
+			CustomLink prevoiusLink = seekIndex(index - 1);
+			currentLink = seekIndex(index);
+			
+			prevoiusLink.setNextLink(currentLink.getNextLink());
+		}
+		
+		return currentLink.getValue();
 	}
 	
 	//	⦁	int size(): returns the length of the List

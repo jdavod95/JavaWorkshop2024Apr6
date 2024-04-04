@@ -35,6 +35,32 @@ class CustomLinkedListTest {
 		assertEquals(testAddList.get(4), 40);
 	}
 	
+
+	@Test
+	void testRemove() {
+		CustomLinkedList<Number> testRemoveList = new CustomLinkedList<>();
+		assertThrows(IndexOutOfBoundsException.class, () -> { testRemoveList.remove(0); });
+
+		testRemoveList.add(10, 0);
+		assertThrows(IndexOutOfBoundsException.class, () -> { testRemoveList.remove(1); });
+		assertEquals(testRemoveList.get(0), 10);
+		
+		testRemoveList.add(10, 0);
+		testRemoveList.add(20, 0);
+		testRemoveList.add(30, 2);
+		testRemoveList.add(40, 3);
+		testRemoveList.add(50, 3);
+		// list contains: 20, 10, 30, 50, 40
+		
+		assertEquals(testRemoveList.remove(2), 30);
+		assertEquals(testRemoveList.remove(2), 50);
+		assertEquals(testRemoveList.remove(2), 40);
+
+		// list contains: 20, 10,
+		assertEquals(testRemoveList.get(0), 20);
+		assertEquals(testRemoveList.get(1), 10);
+	}
+	
 	@Test
 	void testSize() {
 		CustomLinkedList<Number> testSizeList = new CustomLinkedList<>();

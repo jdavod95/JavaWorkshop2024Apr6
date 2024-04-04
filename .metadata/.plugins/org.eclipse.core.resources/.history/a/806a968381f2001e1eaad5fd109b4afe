@@ -1,0 +1,9 @@
+//	⦁	Implement an own LinkedList class as CustomLinkedList<T extends Number>. It is a generic class to store any types of Number values. It has the following methods:
+//	⦁	void add(T value, int index): inserts value under the given index. It throws an exception if the index is wrong.
+//	⦁	int size(): returns the length of the List
+//	⦁	Cover your solution by unit tests.
+//	⦁	Upload your solution to GitHub.
+
+public class CustomLinkedList <T extends Number>{
+
+}

@@ -1,0 +1,8 @@
+java.lang.IndexOutOfBoundsException
+	at CustomLinkedList.seekIndex(CustomLinkedList.java:20)
+	at CustomLinkedList.add(CustomLinkedList.java:43)
+	at CustomLinkedListTest.testAdd(CustomLinkedListTest.java:19)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

@@ -1,0 +1,62 @@
+//	⦁	Implement an own String class as CustomString. It uses an array of characters. It has the following methods:
+//	⦁	Upload your solution to GitHub.
+
+public class CustomString {
+
+	public static char LOWERCASE_A = 'a';
+	public static char LOWERCASE_Z = 'z';
+	public static int CASE_DIFFERENCE = 32;
+	
+	private char[] customString;
+
+	public CustomString(char[] customString) {
+		this.customString = customString;
+	}
+	
+//	⦁	CustomString replace(char oldChar, char newChar): replaces the oldChar to newChar.
+	public CustomString replace(char oldChar, char newChar) {
+		char[] newString = customString.clone();
+		
+		for (int i = 0; i < newString.length; i++) {
+			if(newString[i] == oldChar) {
+				newString[i] = newChar;
+			}
+		}
+		
+		customString = newString;
+
+		return this;
+	}
+	
+//	⦁	CustomString concat(CustomString text): concatenates 2 CustomString
+	public CustomString concat(CustomString text) {
+		char[] newString = new char[customString.length + text.customString.length];
+		
+		for (int i = 0; i < newString.length; i++) {
+			if(i < customString.length) {
+				newString[i] = customString[i];
+			} else {
+				newString[i] = text.customString[i - text.customString.length];
+			}
+		}
+		
+		customString = newString;
+		return this;
+	}
+	
+//	⦁	CustomString toUppercase(): changes the small letters to capital letters
+	public CustomString toUppercase() {
+		char[] newString = customString.clone();
+		
+		for (int i = 0; i < newString.length; i++) {
+			if(newString[i] >= LOWERCASE_A && 
+					newString[i] <= LOWERCASE_Z) {
+				newString[i] -= CASE_DIFFERENCE;
+			}
+		}
+		
+		customString = newString;
+		return this;
+	}
+	
+}

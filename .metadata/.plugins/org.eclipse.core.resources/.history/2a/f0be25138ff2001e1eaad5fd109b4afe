@@ -1,0 +1,30 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+//	⦁	Cover your solution by unit tests.
+
+class CustomLinkedListTest {
+
+	@Test
+	void testAdd() {
+		CustomLinkedList<Number> testAddList = new CustomLinkedList<>();
+		assertThrows(IndexOutOfBoundsException.class, () -> { testAddList.add(1, 1); });
+		assertThrows(IndexOutOfBoundsException.class, () -> { testAddList.get(0); });
+		
+		testAddList.add(1, 0);
+		assertEquals(testAddList.get(0), 1);
+		
+		testAddList.add(2, 0);
+		testAddList.add(3, 2);
+		assertEquals(testAddList.get(0), 2);
+		assertEquals(testAddList.get(1), 1);
+		assertEquals(testAddList.get(2), 3);
+	}
+	
+	@Test
+	void testSize() {
+		fail("Not yet implemented");
+	}
+
+}

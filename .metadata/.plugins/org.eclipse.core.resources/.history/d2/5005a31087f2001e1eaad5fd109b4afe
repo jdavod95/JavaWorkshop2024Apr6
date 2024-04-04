@@ -1,0 +1,19 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+//	⦁	Cover your solution by unit tests.
+
+class CustomLinkedListTest {
+
+	@Test
+	void testAdd() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testSize() {
+		fail("Not yet implemented");
+	}
+
+}

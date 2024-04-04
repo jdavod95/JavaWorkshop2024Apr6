@@ -1,0 +1,52 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+//⦁	Cover your solution by unit tests.
+
+class CustomStringTest {
+	private static CustomString[] TEST_VALUES =
+			new CustomString[] {
+					new CustomString("teszt".toCharArray()),
+					new CustomString("teszt2".toCharArray()),
+					new CustomString("teSZt -Special{ }-".toCharArray())
+			 };
+	
+	private static CustomString[] REPLACE_TEST_RESULTS =
+			new CustomString[] {
+					new CustomString("ceszc".toCharArray()),
+					new CustomString("ceszc".toCharArray()),
+					new CustomString("teszt".toCharArray())
+			 };
+	
+	private static CustomString[] CONCAT_TEST_RESULTS =
+			new CustomString[] {
+					new CustomString("tesztteszt".toCharArray()),
+					new CustomString("teSZt -Special{ }-teszt".toCharArray())
+			 };
+	
+	private static CustomString[] UPPERCASE_TEST_RESULTS =
+			new CustomString[] {
+					new CustomString("TESZT".toCharArray()),
+					new CustomString("TESZT -SPECIAL{ }-".toCharArray()),
+			 };
+	
+	@Test
+	void testReplace() {
+		assertEquals(TEST_VALUES[0].replace('t', 'c'), REPLACE_TEST_RESULTS[0]);
+		assertEquals(TEST_VALUES[0].replace('a', 'b'), REPLACE_TEST_RESULTS[1]);
+		assertEquals(TEST_VALUES[1].replace('2', (char) 3), REPLACE_TEST_RESULTS[2]);
+	}
+	
+	@Test
+	void testConcat() {	
+		assertEquals(TEST_VALUES[0].concat(TEST_VALUES[0]), CONCAT_TEST_RESULTS[0]);
+		assertEquals(TEST_VALUES[2].concat(TEST_VALUES[0]), CONCAT_TEST_RESULTS[1]);
+	}
+	
+	@Test
+	void testUppercase() {	
+		assertEquals(TEST_VALUES[0].toUppercase(), UPPERCASE_TEST_RESULTS[0]);
+		assertEquals(TEST_VALUES[2].toUppercase(), UPPERCASE_TEST_RESULTS[1]);
+	}
+}

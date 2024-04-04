@@ -1,0 +1,14 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+//⦁	Cover your solution by unit tests.
+
+class CustomStringTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

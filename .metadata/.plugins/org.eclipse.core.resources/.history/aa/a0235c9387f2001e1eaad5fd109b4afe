@@ -1,0 +1,74 @@
+import java.util.Objects;
+
+//	⦁	Implement an own LinkedList class as CustomLinkedList<T extends Number>. 
+//		It is a generic class to store any types of Number values. 
+//	⦁	Upload your solution to GitHub.
+
+public class CustomLinkedList <T extends Number>{
+
+	private CustomLink firstLink;
+	private CustomLink lastLink;
+	
+	private CustomLink seekIndex(int index) {
+		int counter = 0;
+		CustomLink currentLink = firstLink;
+		
+		while(counter != index) {
+			counter++;
+			
+			if(Objects.isNull(currentLink) && counter == index) {
+				throw new IndexOutOfBoundsException();
+			}
+			
+			currentLink = currentLink.getNextLink();
+		}
+		
+		return currentLink;
+	}
+	
+	//	⦁	void add(T value, int index): inserts value under the given index. 
+	//		It throws an exception if the index is wrong.
+	public void add(T value, int index) {
+		CustomLink currentLink = new CustomLink(value);
+		
+		if(Objects.isNull(firstLink)) {
+			if(index > 0) {
+				throw new IndexOutOfBoundsException();
+			}
+			
+			firstLink = currentLink;
+			lastLink = firstLink;
+		} else if(index == size()) {
+			lastLink.setNextLink(currentLink); 
+			lastLink = currentLink;
+		} else {
+			CustomLink linkAtIndex = seekIndex(index - 1);
+			currentLink.setNextLink(linkAtIndex.getNextLink());
+			linkAtIndex.setNextLink(currentLink);
+		}
+		
+	}
+	
+	public Number get(int index) {
+		if(Objects.isNull(firstLink)) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		
+		return seekIndex(index).getValue();
+	}
+	
+	//	⦁	int size(): returns the length of the List
+	public int size() {
+		int size = 0;
+		
+		CustomLink currentLink = firstLink;
+		
+		while(!Objects.isNull(currentLink)) {
+			size++;
+			currentLink = firstLink.getNextLink();
+		}
+		
+		return size;
+	}
+	
+}

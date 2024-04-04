@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;CUSTOM_STRING_TEST_VALUES&apos; in &apos;CustomStringTest&apos; to &apos;TEST_VALUES&apos;&#x0D;&#x0A;- Original project: &apos;TaskCustomString&apos;&#x0D;&#x0A;- Original element: &apos;CustomStringTest.CUSTOM_STRING_TEST_VALUES&apos;&#x0D;&#x0A;- Renamed element: &apos;CustomStringTest.TEST_VALUES&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;CUSTOM_STRING_TEST_VALUES&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/&lt;{CustomStringTest.java[CustomStringTest^CUSTOM_STRING_TEST_VALUES" name="TEST_VALUES" references="true" setter="false" stamp="1712229098597" textual="false" version="1.0"/>
+</session>
